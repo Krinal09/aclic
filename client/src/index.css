@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+  
+  body {
+    @apply font-sans antialiased;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .chat-container {
+    @apply w-full max-w-4xl h-[80vh] bg-white/95 rounded-3xl shadow-2xl backdrop-blur-md flex flex-col overflow-hidden;
+  }
+  
+  .chat-header {
+    @apply bg-gradient-to-r from-gradient-from to-gradient-to text-white p-6 text-center border-b border-white/10;
+  }
+  
+  .message {
+    @apply flex gap-3 animate-fade-in;
+  }
+  
+  .message.user {
+    @apply flex-row-reverse;
+  }
+  
+  .message-avatar {
+    @apply w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0;
+  }
+  
+  .message.user .message-avatar {
+    @apply bg-gradient-to-r from-gradient-from to-gradient-to text-white;
+  }
+  
+  .message.bot .message-avatar {
+    @apply bg-gray-100 text-gray-600;
+  }
+  
+  .message-content {
+    @apply max-w-[70%] flex flex-col;
+  }
+  
+  .message.user .message-content {
+    @apply items-end;
+  }
+  
+  .message-text {
+    @apply px-4 py-3 rounded-2xl text-sm leading-relaxed break-words;
+  }
+  
+  .message.user .message-text {
+    @apply bg-gradient-to-r from-gradient-from to-gradient-to text-white rounded-br-md;
+  }
+  
+  .message.bot .message-text {
+    @apply bg-gray-50 text-gray-800 rounded-bl-md border border-gray-200;
+  }
+  
+  .message.error .message-text {
+    @apply bg-red-50 text-red-800 border-red-200;
+  }
+  
+  .send-button {
+    @apply w-11 h-11 border-none rounded-full bg-gradient-to-r from-gradient-from to-gradient-to text-white cursor-pointer flex items-center justify-center transition-all duration-200 flex-shrink-0 hover:scale-105 hover:shadow-lg disabled:bg-gray-400 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none;
+  }
+  
+  .input-field {
+    @apply flex-1 border-2 border-gray-200 rounded-2xl px-4 py-3 text-sm resize-none outline-none transition-colors duration-200 min-h-11 max-h-32 focus:border-primary-500 disabled:bg-gray-50 disabled:cursor-not-allowed;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded hover:bg-gray-400;
+} 
