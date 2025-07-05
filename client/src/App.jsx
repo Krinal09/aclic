@@ -44,7 +44,7 @@ function App() {
     setShowQuestions(false);
 
     try {
-      const response = await axios.post('/api/chat', {
+      const response = await axios.post('http://192.168.1.100:8000/query', {
         message: inputMessage
       });
 
